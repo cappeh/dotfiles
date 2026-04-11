@@ -1,0 +1,121 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 10,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock",
+  ],
+
+  "modules-right": [
+    "tray",
+    "group/sys-mon",
+    "group/net-info",
+    "pulseaudio",
+    "custom/notification"
+  ],
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{id}",
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+  },
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10,
+  },
+
+  "clock": {
+    "format": "{:%OI:%OM %p %A, %b %e}",
+    "interval": 60,
+    "tooltip": false
+  },
+
+  "group/sys-mon": {
+    "modules": [
+      "disk",
+      "memory",
+      "cpu"
+    ],
+    "orientation": "horizontal"
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "<span color=\"#f9e2af\"> </span> {specific_used:0.2f} GB",
+    //"path": "/",
+    "unit": "GB"
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "<span color=\"#89b4fa\"> </span> {used} GiB",
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "<span color=\"#f38ba8\"></span>  {}%",
+    "max-length": 10
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [" ", " ", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+
+
+  "group/net-info": {
+    "drawer": {
+      "children-class": "network-info",
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "network#icon",
+      "network#name"
+    ],
+    "orientation": "horizontal"
+  },
+
+  "network#icon": {
+    "format": "{icon}",
+    "format-disabled": "󰖪",
+    "format-disconnected": "<span color=\"#7aa2f7\">⚠ </span>",
+    "format-ethernet": "<span color=\"#7aa2f7\"> </span>",
+    "format-icons": [
+      "<span color=\"#a6e3a1\"> </span>"
+    ],
+
+    "format-linked": "<span color=\"#a6e3a1\"> </span>",
+    "format-wifi": "{icon}",
+    "interval": 30,
+    "on-click": "ghostty -e 'nmtui'",
+    "on-click-right": "rfkill toggle wifi",
+    "tooltip": true,
+    "tooltip-format": "interface:\t{ifname}\n\nconnected to {essid} at {signalStrength}% strength",
+    "tooltip-format-disconnected": "interface: {ifname}\nconnected to {essid}\nat {signalStrength}% strength"
+  },
+
+  "network#name": {
+    "on-click-right": "ghostty -e 'nmtui'",
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ifname}",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": " Disconnected",
+    "format-alt": " {ipaddr}"
+  },
+}
