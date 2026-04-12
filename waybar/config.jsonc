@@ -58,12 +58,14 @@
   "memory": {
     "interval": 30,
     "format": "<span color=\"#89b4fa\"> </span> {used} GiB",
+    "on-click": "ghostty -e btop",
   },
 
   "cpu": {
     "interval": 10,
     "format": "<span color=\"#f38ba8\"></span>  {}%",
-    "max-length": 10
+    "max-length": 10,
+    "on-click": "ghostty -e htop",
   },
 
   "pulseaudio": {
