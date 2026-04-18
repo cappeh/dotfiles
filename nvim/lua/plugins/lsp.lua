@@ -24,6 +24,7 @@ return {
     })
 
     vim.lsp.enable("pyright")
+    vim.lsp.enable("gopls")
 
     local keymap = vim.keymap -- for conciseness
     vim.api.nvim_create_autocmd("LspAttach", {
