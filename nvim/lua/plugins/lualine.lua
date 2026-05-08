@@ -4,7 +4,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = require("cyberpunk-2077").lualine(),
+        -- theme = require("cyberpunk-2077").lualine(),
+        theme = "palenight",
         component_separators = " ",
         section_separators = { left = '', right = '' }
       },

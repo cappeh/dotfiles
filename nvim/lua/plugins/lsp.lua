@@ -23,9 +23,11 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.enable("pyright")
-    vim.lsp.enable("gopls")
-    vim.lsp.enable("rust_analyzer")
+    -- vim.lsp.enable("pyright")
+    vim.lsp.enable("ty")
+    vim.lsp.enable("lua_ls")
+    -- vim.lsp.enable("gopls")
+    -- vim.lsp.enable("rust_analyzer")
 
     local keymap = vim.keymap -- for conciseness
     vim.api.nvim_create_autocmd("LspAttach", {
